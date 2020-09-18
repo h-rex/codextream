@@ -27,9 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9#-#(n-!&2dnsy=-@h9af*#z%-)-y0#&)9$uu!gd)e3#k+h1sm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['codextreamofficial@gmail.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'codextream.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'asia/kolkata'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -142,7 +142,7 @@ EMAIL_USE_TLS = True
 LOGIN_REDIRECT_URL = '/'
 
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
-MEDIA_ROOT = '/static/'
+STATIC_ROOT = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -220,3 +220,4 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 
 ]
+
