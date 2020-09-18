@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+<!--   <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="/static/vendor/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/static/vendor/fa/css/fontawesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/vendor/style.css">
+    
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" style="font-size:25px;">CodeXtream</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% block homeactive %}{% endblock %}">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+<!--            <li class="nav-item {% block FreeBookactive %}{% endblock %}">-->
+<!--                <a class="nav-link" href="#">FreeBook</a>-->
+<!--            </li>-->
+
+            
+            
+            
+            {% if cat_menu %}
+            <li class="nav-item dropdown {% block Coursesactive %}{% endblock %}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Courses
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for item in cat_menu %}
+                        <a class="dropdown-item" href="{% url 'course_category' item.pk %}" >{{item}}</a>
+                    {% endfor %}
+                </div>
+            </li>
+            {% endif %}
+            <li class="nav-item {% block freepdfactive %}{% endblock %}">
+                <a class="nav-link" href="/freepdf">FreePDF</a>
+            </li>
+            <li class="nav-item {% block blogactive %}{% endblock %}">
+                <a class="nav-link" href="/blog/">Blog</a>
+            </li>
+            <li class="nav-item {% block donateactive %}{% endblock %}">
+                <a class="nav-link" href="/donate">Donate</a>
+            </li>
+            
+        </ul>
+        <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search for Courses" aria-label="Search" name="q" required>
+            <button class="btn btn-dark my-2 mr-4 my-sm-0" type="submit" title="search"><i class="fa fa-search"></i></button>
+        </form>
+         
+        {% if user.is_authenticated %}
+        <button type="button" class="btn btn-success  mr-2"><a style="text-decoration:none; color:white;" href="{% url 'account_email' %}">Change E-mail</a></button>
+        <button type="button" class="btn btn-success "><a style="text-decoration:none; color:white;" href="{% url 'account_logout' %}">Logout</a></button>
+        {% else %}
+        <button type="button" class="btn btn-success mr-2" ><a style="text-decoration:none; color:white;" href="{% url 'account_login' %}">Login</a></button>
+        <button type="button" class="btn btn-success"><a style="text-decoration:none; color:white;" href="{% url 'account_signup' %}">SignUp</a></button>
+        {% endif %}
+      
+        
+    </div>
+</nav>
+
+{% for message in messages  %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>message</strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+<body>
+
+
+{% block content %}
+
+{% endblock %}
+</body>
+
+
+
+
+
+
+<div class="footer-back">
+<footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+            <img src="{% static 'images/code.png' %}" style="width:200px;" alt=""><br><br>
+           
+            <small class="d-block mb-3 ml-4 text-muted">&copy; 2020-2021 <a href="/" style="text-decoration:none; color:white;">CodeXtream</a> </small>
+            <h6></h6>
+        </div>
+<!--        <div class="col-6 col-md">-->
+<!--          <h5>Features</h5>-->
+<!--          <ul class="list-unstyled text-small">-->
+<!--            <li><a class="text-muted" href="#">Cool stuff</a></li>-->
+<!--            <li><a class="text-muted" href="#">Random feature</a></li>-->
+<!--            <li><a class="text-muted" href="#">Team feature</a></li>-->
+<!--            <li><a class="text-muted" href="#">Stuff for developers</a></li>-->
+<!--            <li><a class="text-muted" href="#">Another one</a></li>-->
+<!--            <li><a class="text-muted" href="#">Last time</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+        <div class="col-6 col-md">
+          <h5>Content</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="/">Courses</a></li>
+            <li><a class="text-muted" href="/blog">Blog</a></li>
+            <li><a class="text-muted" href="/donate">Donate</a></li>
+              <li><a class="text-muted" href="/freepdf">FreePDF</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+             <div class="row">
+                <li><a class="btn btn-info btn-md mt-2 ml-3 mr-2" href="https://twitter.com/code_xtream?s=09" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li>    <a class="btn btn-danger btn-md mt-2" href="https://instagram.com/codextreamofficial?igshid=mqh812jbb76l" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              </div>
+              <div class="row">
+              <li><a class="btn btn-danger btn-md mt-2 ml-3 mr-2" href="https://www.youtube.com/channel/UCB0WV_hlu4Z1A3mKBeuzsxA" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                 <li>  <a class="btn btn-info btn-md mt-2" href="https://www.linkedin.com/in/code-xtream-655b971b5" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              </div>
+              <div class="row">
+                   <li><a class="btn btn-info btn-md mt-2 ml-3 mr-1" href="https://t.me/CodeXtream" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
+           
+                <li><a class="btn btn-danger btn-md ml-1 mt-2 mr-2" href="https://www.facebook.com/code.xtrem.5" target="_blank"><i class="fa fa-facebook"></i></a></li>
+           </div>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Back to top</a></li>
+            <li><a class="text-muted" href="/team">Team</a></li>
+            <li><a class="text-muted" href="/privacy">Privacy</a></li>
+            <li><a class="text-muted" href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+</div>
+
+
+
+<script src="/static/vendor/fa/js/fontawesome.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="/static/vendor/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

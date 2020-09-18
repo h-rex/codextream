@@ -1,0 +1,23 @@
+{% extends "account/base.html" %}
+{% block title %}Logout{% endblock %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Logout" %}{% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-sm-6 offset-3 mt-5 p-5 home-background">
+<h1 class="mb-4">{% trans "Logout" %}</h1>
+  <hr>
+<p>{% trans 'Are you sure you want to Logout?' %}</p>
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button type="submit" class="signupbtn">{% trans 'Logout' %}</button>
+</form>
+
+</div>
+{% endblock %}

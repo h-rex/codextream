@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block blogactive %}active{% endblock %}
+{% block title %} Blog {% endblock %}
+{% load static %}
+{% block content %}
+    <div class="container cat-background mt-4"> 
+    
+        <div class="row">
+            {% for cat in category %}
+            <div class="py-2 col-sm-2 blog-nav"><a href="{% url 'list_of_post_by_category' cat.slug %}" style="text-decoration:none; color:white;"><div>{{ cat.name }}</div></a></div>
+            {% endfor %}
+        </div>
+     
+    </div>
+
+ <div class="container p-3 home-background">
+     <div class="wrap">
+                <form class="search" action="{% url 'blogSearch' %}">
+                   <input type="search" class="searchTerm" placeholder="Search here for Blog" name="q" required>
+                   <button type="submit" class="searchButton">
+                     <i class="fa fa-search"></i>
+                  </button>
+                </form>
+             </div>
+     <div class="ml-1 mb-3 row">
+         <a href="/blog/" style="text-decoration:none;"><h5 class="mt-4">Home</h5></a>
+     </div>
+     
+          <hr>
+  <div class="row">
+{% for post in posts %}
+    <div class="col-lg-4 mt-2">
+        <div class="card h-200 card-hover card-shadow">
+  
+            <img class="card-img-top" src="{{ post.img.url }}" alt="Card image top">
+            <div class="card-body" style="height:160px;">
+                <a href="{% url 'blogPost' post.slug %}" style="text-decoration:none; color:#0d0d0d;"><h4 class="card-title blogpost-hover">{{post.title}}</h4></a>
+            </div>
+
+
+            <div class="card-footer">
+                    <div class="row">
+                        <a href="#" style="text-decoration: none; color: black;">
+                      <img src="{% static 'images/devdarji.jpg' %}" class="rounded-circle home-profile" style="height: 40px; width: 40px;" >&nbsp;&nbsp;{{post.author}} | {{post.upload_time|timesince}} ago</a>
+                            </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+  
+     </div>
+    
+  {% if posts %}
+         <ul class="pagination justify-content-center mt-3 ">
+         {% if posts.has_previous %}
+         <li><a href="?page=1"  class="page-link" >First</a></li>
+         <li><a href="?page={{posts.previous_page_number}}" class="page-link" >Previous</a></li>
+         {% endif %}
+         {% for num in posts.paginator.page_range %}
+         {% if posts.number == num %}
+         <li class="active page-item"><a class="page-link active-page">{{num}}</a></li>
+         {% elif num > posts.number|add:'-3' and num < posts.number|add:'3' %}
+         <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+         {% endif %}
+         {% endfor %}
+         {% if posts.has_next %}
+         <li class=page-item"><a href="?page={{posts.next_page_number}}" class="page-link">Next</a></li>
+         <li class=page-item"><a href="?page={{posts.paginator.num_pages}}" class="page-link">Last</a></li>
+         {% endif %}
+         </ul>
+   
+     {% endif %}
+     
+ </div> 
+
+
+
+
+
+{% endblock %}

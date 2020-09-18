@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block freepdfactive %}active{% endblock %}
+{% block title %} FreePDF {% endblock %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4"><a href="/freepdf" style="text-decoration:none; color:black;">FreePDF</a></h1>
+          
+
+        <hr>
+          <div class="row ml-1">
+          <a href="/freepdf" style="text-decoration:none;"><h5>Home</h5></a>
+              </div>
+          <hr>
+        {% for file in pdfs %}
+<div class="container-fluid1">
+    <div class="row">
+        <div class="col-sm-12 mt-2">
+            <div class="card card-hover card-shadow">
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper"><a href="{% url 'pdfPost' file.slug %}">
+                        <img class="card-img-top"  src="{{file.image.url}}" alt="image" style="width:100px; height:154px;"></a>
+                    </div>
+                    <div class="card-body pdfbody">
+                        <a href="{% url 'pdfPost' file.slug %}" style="text-decoration:none;color:#0d0d0d;"><h6 class="blogpost-hover">{{file.title|truncatechars:65}}</h6></a>
+                      <p>{{file.pdf_pages}} Pages&nbsp; &middot;&nbsp; {{file.year}}&nbsp; &middot; &nbsp;{{file.pdf_size}} MB&nbsp; &middot; &nbsp;
+                          <a href="{% url 'category_pdf' file.category_pdf.slug %}" style="text-decoration:none;">{{file.category_pdf}}</a>&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-right"> <a href="{% url 'pdfPost' file.slug %}" class="btn categorypdf btn-sm" style="text-decoration:none; color:white;" >Download Page</a></div></p>
+                      
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>      
+        {% endfor %}
+      
+          {% if pdfs %}
+    <ul class="pagination justify-content-center mt-3 ">
+         {% if pdfs.has_previous %}
+         <li><a href="?page=1"  class="page-link" >First</a></li>
+         <li><a href="?page={{pdfs.previous_page_number}}" class="page-link" >Previous</a></li>
+         {% endif %}
+         {% for num in pdfs.paginator.page_range %}
+         {% if pdfs.number == num %}
+         <li class="active page-item"><a class="page-link active-page">{{num}}</a></li>
+         {% elif num > pdfs.number|add:'-3' and num < pdfs.number|add:'3' %}
+         <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+         {% endif %}
+         {% endfor %}
+         {% if pdfs.has_next %}
+         <li class=page-item"><a href="?page={{pdfs.next_page_number}}" class="page-link">Next</a></li>
+         <li class=page-item"><a href="?page={{pdfs.paginator.num_pages}}" class="page-link">Last</a></li>
+         {% endif %}
+         </ul>
+        {% endif %}
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-lg-4">
+
+        <!-- Search Widget -->
+       <div class="card my-4">
+            
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+              <form action="{% url 'pdfSearch' %}">
+            <div class="input-group">
+              <input type="search" class="form-control" aria-label="Search" placeholder="Search for PDF" name="q" required>
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="submit" title="search">Search</button>
+              </span>
+            </div>
+                  </form>
+              
+          </div>
+                
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <ul class="list-unstyled mb-0">
+                    {% for cat in category %}
+                  <li style="text-align:center;" class="mt-2">
+                    <a href="{% url 'category_pdf' cat.slug %}" class="btn btn-dark btn-sm  block categorypdf" style="text-decoration:none; color;white;">{{cat.name}}</a>
+                  </li>
+                    {% endfor %}
+                </ul>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+<!--        <div class="card my-4">-->
+<!--          <h5 class="card-header">Side Widget</h5>-->
+<!--          <div class="card-body">-->
+<!--              <a class="btn bg-light block" href="https://www.youtube.com/channel/UCB0WV_hlu4Z1A3mKBeuzsxA" style="text-decoration:none;"> <div class="g-ytsubscribe" data-channel="feelthemusic" data-layout="full" data-count="default"></div></a>-->
+<!--          </div>-->
+<!--        </div>-->
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+       
+  </div>
+  <!-- /.container -->
+
+<script src="https://apis.google.com/js/platform.js"></script>
+
+
+
+
+
+
+
+{% endblock %}

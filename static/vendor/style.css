@@ -1,0 +1,444 @@
+html{
+scroll-behavior:smooth;
+}
+body{
+ background-color: #efefef;
+}
+
+
+.container-fluid {
+  color: white;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background-color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+.navbar {
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+.footer-link {
+  color: white;
+}
+.footer-link:hover {
+  color: rgba(0, 0, 0, 0.562);
+  text-decoration: none;
+}
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+.home-card:hover {
+  box-shadow: 0 0 2px 1px #007bff;
+}
+.pop-background{
+ background-color: white;
+}
+.trending {
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: white;
+}
+.btn-treand {
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: white;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 190px;
+}
+
+header h1 {
+  font: normal 32px/1.5 "Open Sans", sans-serif;
+  color: #3f71ae;
+  padding-bottom: 16px;
+}
+
+header h2 {
+  color: #f05283;
+}
+
+header span {
+  color: #3f71ea;
+}
+
+
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #4caf50;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+.card-hover:hover {
+  box-shadow: 0 0 2px 1px rgba(51, 54, 252, 0.726);
+}
+.card-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.topright {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+}
+.bottom-left{
+    background-color: black;
+    opacity: 0.5;
+    color:white;
+    position: absolute;
+    top: 122px;
+    left: 5px;
+    font-size: 18px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.block-title{
+    text-align: center;
+    background-color:black;
+    color:white;
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.block-line{
+    margin-top:-3px;
+    border-width: 2px;
+    background-color:black;
+}
+.enrollbtn{
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    padding:0.4em 1em;
+    border-radius: 25px;
+    color:#fff;
+    font-size:1.5em;
+    border:0;
+    cursor:pointer;
+    margin:1em;
+    text-align: center;
+}
+.enrollbtn:hover{    
+    background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
+    color:white;    
+}
+.search-title{
+    text-align: center;
+    /* background-color:black; */
+    /* color:black; */
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.active-page{
+  background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
+  color:white;  
+}
+
+
+/*  =====================================          Contact Form       =================================*/
+
+.contact-form{
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+body{
+    background-color: #efefef;
+}
+
+.home-background{
+background-color:white;
+margin-bottom:40px;
+}
+.cat-background{
+  background-color: black;  
+}
+.text-muted {
+  color: #ffffff!important;
+}
+.text-muted:hover{
+  text-color:blueviolet;
+}
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 1px solid linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color:black;
+}
+
+.searchTerm:focus{
+  color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid linear-gradient(to right, #6a11cb 0%, #2575fc 100%);;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.blog-nav{
+  color:white; 
+  text-align: center;
+  font-size: 20px;
+}
+.blog-nav:hover{
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color:white;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 120px;
+    padding: 1.25rem;}
+    
+.content-center {
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+
+
+.topright1 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 18px;
+}
+.blogpost-hover:hover{
+  color:#2575fc;
+}
+
+
+.signupbtn{
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    padding:0.2em 1.2em;
+    border-radius: 15px;
+    color:#fff;
+    font-size:1.2em;
+    border:0;
+    cursor:pointer;
+    margin:1em;
+    text-align: center;
+}
+.signupbtn:hover{    
+    background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
+    color:white;    
+}
+
+
+/* <================================= Tutorial css ================================> */
+/* <================================= Tutorial css ================================> */
+/* <================================= Tutorial css ================================> */
+/* <================================= Tutorial css ================================> */
+.paytm-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.footer-back{
+background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
+}
+
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.categorypdf{
+background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+padding-top:8px;
+padding-bottom:8px;
+}
+.categorypdf:hover{    
+    background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
+    color:white;    
+}
+
+
+/* Team Card CSS */
+/* Team Card CSS */
+/* Team Card CSS */
+
+.our-team {
+  padding: 30px 0 40px;
+  margin-bottom: 30px;
+  background-color: white;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.our-team .picture {
+  display: inline-block;
+  height: 130px;
+  width: 130px;
+  margin-bottom: 50px;
+  z-index: 1;
+  position: relative;
+}
+
+.our-team .picture::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  bottom: 135%;
+  right: 0;
+  left: 0;
+  opacity: 0.9;
+  transform: scale(3);
+  transition: all 0.3s linear 0s;
+}
+
+.our-team:hover .picture::before {
+  height: 100%;
+}
+
+.our-team .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.our-team .picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .picture img {
+  box-shadow: 0 0 0 14px #f7f5ec;
+  transform: scale(0.7);
+}
+
+.our-team .title {
+  display: block;
+  font-size: 15px;
+  color: #4e5052;
+  text-transform: capitalize;
+}
+
+.our-team .social {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #1369ce;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .social {
+  bottom: 0;
+}
+
+.our-team .social li {
+  display: inline-block;
+}
+
+.our-team .social li a {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.our-team .social li a:hover {
+  color: #1369ce;
+  background-color: #f7f5ec;
+}
+.our-team{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pdfbody{
+padding: 0.5rem;
+}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+{% block homeactive %}active{% endblock %} 
+{% block title %} {{category.name}} {% endblock %}
+{% block content %} 
+{% load static %}
+
+<div class="p-4">
+  <div>
+    <h2><span class="block-title">{{category.name}}</span></h2>
+    <hr class="block-line" />
+  </div>
+
+  <div class="row">
+    {% for course in course_list %}
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card card-hover card-shadow mt-4" style="width: 18rem">
+        <img
+          src="{{course.img.url}}"
+          class="card-img-top img-thumbnail"
+          style="height: 150px"
+          alt="..."
+        />
+        <p class="bottom-left"><span>{{course.course_site_name}}</span></p>
+        <div class="card-body">
+          <p class="mb-2">
+            <span class="date-read"><span class="fa fa-clock-o">&nbsp;&nbsp;</span>{{course.upload_time|timesince}} ago<span
+                class="icon-star2"></span></span>
+          </p>
+          <p class="topright">
+            <button class="btn btn-info btn-sm">{{course.category}}</button>
+          </p>
+          <h5 class="card-title">
+            <a
+              href="{% url 'coursePost' course.id course.slug %}"
+              title="{{course.title}}"
+              style="text-decoration: none; color: black">{{course.title|truncatechars:60}}
+            </a>
+          </h5>
+          <p>{{course.course_hour}} course</p>
+          <a href="{% url 'coursePost' course.id course.slug %}" class="btn btn-outline-success btn-block">Get Course</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+ 
+  {% if page_obj  %}
+   <ul class="pagination justify-content-center mt-3 ">
+         {% if page_obj.has_previous %}
+         <li><a href="?page=1"  class="page-link" >First</a></li>
+         <li><a href="?page={{page_obj.previous_page_number}}" class="page-link" >Previous</a></li>
+         {% endif %}
+         {% for num in page_obj.paginator.page_range %}
+         {% if page_obj.number == num %}
+         <li class="active page-item"><a class="page-link active-page">{{num}}</a></li>
+         {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+         <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+         {% endif %}
+         {% endfor %}
+         {% if page_obj.has_next %}
+         <li class=page-item"><a href="?page={{page_obj.next_page_number}}" class="page-link">Next</a></li>
+         <li class=page-item"><a href="?page={{page_obj.paginator.num_pages}}" class="page-link">Last</a></li>
+         {% endif %}
+         </ul>
+    {% endif %}
+</div>
+
+{% endblock %}

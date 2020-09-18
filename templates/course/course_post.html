@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block homeactive %}active{% endblock %}
+{% block title %} {{course.title}} {% endblock %}
+{% block content %}
+{% load static %}
+
+{% if cat_menu %}
+<div class="site-section p-5">
+    <div class="container align-items-center ">
+        <div class="row">
+            <div class="col-xl-8 single-content home-background">
+                <h3 class="mb-4 mt-2">
+                    {{course.title}}
+                </h3>
+                <div class="post-meta d-flex mb-5">
+                    <div class="vcard">
+<!--                        <span class="d-block"><a href="#">{{post.user.username}}</a></span>-->
+                        <span class="date-read">{{course.upload_time}}<span class="mx-1"></span></span></span>
+                    </div>
+                </div>
+                <p class="mb-5">
+                    <img src="{{course.img.url}}" alt="Image" class="img-fluid">
+                </p>
+                
+                
+                <div class="container">
+                    {{course.body_text|safe}}
+                </div>
+                
+                
+                <div>
+                    <a href="https://t.me/CodeXtream" target="_blank">
+                        <button class="enrollbtn btn btn-sm"><i class="fa fa-paper-plane"></i>  &nbsp;Join Our Telegram Group
+                        </button></a>
+                </div>
+                
+                <div>
+                    <a href="{{ course.url }}" target="_blank">
+                        <button class="enrollbtn btn btn-sm"><i class="fa fa-sign-in fa-md"></i>&nbsp;&nbsp;Enroll Now
+                        </button></a>
+                </div>
+
+                <hr>
+                <h3 class="mt-3 mb-3" style="text-align:center;">Join Us</h3>
+                <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Join our WhatsApp group for referral :</th>
+      <th scope="col"><a href="https://chat.whatsapp.com/BOqnSDvsARdE0Kc2JlOrYH" target="_blank">Click Here</a> </th>   
+    </tr>
+  <tr>
+      <th scope="col">Join our telegram group :</th>
+      <th scope="col"><a href="https://t.me/CodeXtream" target="_blank">Click Here</a> </th>   
+    </tr>
+  <tr>
+      <th scope="col">Telegram group(Free Online Courses) :</th>
+      <th scope="col"><a href="https://t.me/CodeXtream" target="_blank">Click Here</a> </th>   
+    </tr>
+  <tr>
+      <th scope="col">Join our LinkedIn group for referral : </th>
+      <th scope="col"><a href="" target="_blank">Click Here</a> </th>
+  </tr>
+    <tr>
+      <th scope="col">Facebook Group : </th>
+      <th scope="col"><a href="https://www.facebook.com/groups/691451751469034/?ref=share" target="_blank">Click Here</a> </th>
+  </tr>
+   <tr>
+      <th scope="col">Follow us on LinkedIn : </th>
+      <th scope="col"><a href="https://www.linkedin.com/in/code-xtream-655b971b5" target="_blank">Click Here</a> </th>
+  </tr>
+   <tr>
+      <th scope="col">Follow us on Twitter : </th>
+      <th scope="col"><a href="https://twitter.com/code_xtream?s=09" target="_blank">Click Here</a> </th>
+  </tr>
+   <tr>
+      <th scope="col">Follow us on Instagram : </th>
+      <th scope="col"><a href="https://instagram.com/codextreamofficial?igshid=mqh812jbb76l" target="_blank">Click Here</a> </th>
+  </tr>
+  </thead>
+
+</table>
+                
+            </div>
+            <div class="col-xl-4">
+                <table class="table table-light">
+                    <thead class="trending" style="color:white">
+                        <th>
+                            <h4>Trending Post</h4>
+                        </th>
+    
+                    </thead>
+                    <tbody>
+                        {% for post in trends %}
+                        <tr class="card-hover">
+                            <td>
+                                <div class="trend-contents">
+                                    <h5><a href="{% url 'coursePost' post.id post.slug %}"
+                                            style="text-decoration:none; color:black;">{{post.title}}
+                                        </a></h5>
+                                    <div class="post-meta">
+    
+    
+                                        <span class="date-read">{{post.upload_time}}<span class="mx-1"></span>
+                                            <span class="icon-star2"></span></span>
+                                    </div>
+                                </div>
+    
+                            </td>
+                        </tr>
+                        {% endfor %}
+    
+                    </tbody>
+                </table>
+                <p>
+                    <a href="{% url 'category' 'trending' %}" class="btn btn-treand">See All Trending Courses<span
+                            class="icon-keyboard_arrow_right"></span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
