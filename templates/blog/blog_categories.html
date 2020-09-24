@@ -4,7 +4,6 @@
 {% load static %}
 {% block content %}
 
-
    <div class="container cat-background mt-4"> 
     
         <div class="row">
@@ -12,7 +11,6 @@
             <div class="py-2 col-sm-2 blog-nav "><a href="{% url 'list_of_post_by_category' cat.slug %}" style="text-decoration:none; color:white;"><div>{{ cat.name }}</div></a></div>
             {% endfor %}
         </div>
-     
     </div>
 
 <div class="container p-3 home-background">
@@ -71,6 +69,5 @@
          </ul>
      {% endif %}
  </div> 
-
 
 {% endblock %}
