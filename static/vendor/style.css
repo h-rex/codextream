@@ -6,11 +6,7 @@ body{
 }
 
 
-.container-fluid {
-  color: white;
-  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-  background-color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-}
+
 .navbar {
   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
@@ -119,15 +115,15 @@ header span {
     padding:0.4em 1em;
     border-radius: 25px;
     color:#fff;
-    font-size:1.5em;
+    font-size:1.2em;
     border:0;
     cursor:pointer;
     margin:1em;
     text-align: center;
 }
-.enrollbtn:hover{    
+.enrollbtn:hover{
     background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
-    color:white;    
+    color:white;
 }
 .search-title{
     text-align: center;
@@ -140,7 +136,7 @@ header span {
 }
 .active-page{
   background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
-  color:white;  
+  color:white;
 }
 
 
@@ -209,7 +205,7 @@ background-color:white;
 margin-bottom:40px;
 }
 .cat-background{
-  background-color: black;  
+  background-color: black;
 }
 .text-muted {
   color: #ffffff!important;
@@ -250,7 +246,7 @@ margin-bottom:40px;
   font-size: 20px;
 }
 .blog-nav{
-  color:white; 
+  color:white;
   text-align: center;
   font-size: 20px;
 }
@@ -263,7 +259,7 @@ margin-bottom:40px;
     flex: 1 1 auto;
     min-height: 120px;
     padding: 1.25rem;}
-    
+
 .content-center {
     -ms-flex-pack: center!important;
     justify-content: center!important;
@@ -292,9 +288,9 @@ margin-bottom:40px;
     margin:1em;
     text-align: center;
 }
-.signupbtn:hover{    
+.signupbtn:hover{
     background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
-    color:white;    
+    color:white;
 }
 
 
@@ -324,9 +320,9 @@ background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 padding-top:8px;
 padding-bottom:8px;
 }
-.categorypdf:hover{    
+.categorypdf:hover{
     background-image: linear-gradient(to left, #6a11cb 0%, #2575fc 100%);
-    color:white;    
+    color:white;
 }
 
 
@@ -441,4 +437,47 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 .pdfbody{
 padding: 0.5rem;
+}
+
+.container-fluid { max-width: 1200px; }
+
+.margin-t-0 { margin-top: 0; }
+.margin-t-h { margin-top: .5em; }
+.margin-t-1 { margin-top: 1em; }
+.margin-t-2 { margin-top: 2em; }
+.margin-t-3 { margin-top: 3em; }
+.margin-b-0 { margin-bottom: 0; }
+.margin-b-h { margin-bottom: .5em; }
+.margin-b-1 { margin-bottom: 1em; }
+.margin-b-2 { margin-bottom: 2em; }
+.margin-b-3 { margin-bottom: 3em; }
+
+.margin-tb-0
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.margin-tb-h
+{
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+.margin-tb-1
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.margin-tb-2
+{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.margin-tb-3
+{
+	margin-top: 3em;
+	margin-bottom: 3em;
 }
