@@ -8,11 +8,11 @@
     <div>
         <h2><span class="block-title">Latest Course</span></h2>
         <hr class="block-line">
-    </div>    
+    </div>
     <div style="text-align:center;">
         <h5>Join to Our Telegram Group: <a href="https://t.me/CodeXtream" target="_blank">Click Here</a></h5>
     </div>
-    
+
 {% if cat_menu %}
     <div class="row p-1 mb-4">
         {% for course in post %}
@@ -45,7 +45,7 @@
     </div>
 {% endif %}
 
-    {% if post %}  
+    {% if post %}
    <ul class="pagination justify-content-center mt-3 ">
          {% if post.has_previous %}
          <li><a href="?page=1"  class="page-link" >First</a></li>
@@ -66,77 +66,69 @@
 {% endif %}
     <div class="row">
         <div class="col-xl-8 text-justify ">
-            <div class="site-section pop-background">
 
-                <div class="section-title trending" style="color:white;">
-                    <h4 class="p-3">Popular Posts</h4>
-                </div>
-            
-                    
-                    {% for post in pop_post|slice:":5" %}
-                <div class="post-entry-2 d-flex mb-2 card-hover text-justify">
-                    <div class="thumbnail">
-                        <img src="{{post.img.url}}" alt="{{post.title}}" class="img-fluid"
-                            style="width: 200px; height:100px;">
-                    </div>
-                    <div class="contents order-md-1 ml-2">
-                        <h5><a href="{% url 'coursePost' post.id post.slug %}"
-                                style="text-decoration:none; color:black;">{{post.title}}</a></h5>
+            					<div class="panel panel-default mt-4">
+                       <div class="section-title trending p-2" style="color:white; text-align:center;">
+              <h4>Popular Courses</h4>
+          </div>
+                        <div class="panel-body">
+					<ol class="list-unstyled mb-0">
+
+                {% for post in pop_post|slice:":5" %}
+                <div class="media mt-3">
+                    <img src="{{ post.img.url }}" alt="" class="mr-2" style="width:110px; height:70px;">
+                    <div class="media-body small">
+                      <div class="d-flex justify-content-between align-items-center w-100">
+                          <a href="{% url 'coursePost' post.id post.slug %}" style="text-decoration:none; color:#0d0d0d;"><h6 class="card-title blogpost-hover">{{ post.title }}</h6></a>
+                      </div>
                         <div class="post-meta">
 
                             <span class="date-read">{{post.upload_time}}<span class="icon-star2"></span></span>
                         </div>
                     </div>
-                </div>                    
-                {% endfor %}           
-            </div>
-
-            <p>
-                <a href="{% url 'category' 'popular' %}" class="btn btn-treand mt-2">See All Popular Courses<span
+                  </div>
+                <hr>
+                {% endfor %}
+ <p>
+                <a href="{% url 'category' 'popular' %}" class="btn btn-treand">See All Popular Courses<span
                         class="icon-keyboard_arrow_right"></span></a>
             </p>
-
+            </ol>
+					</div>
+                    </div>
         </div>
 
-
-
         <div class="col-xl-4">
-            <table class="table table-light">
-                <thead class="trending" style="color:white">
-                    <th>
-                        <h4>Trending Post</h4>
-                    </th>
+       <div class="panel panel-default mt-4">
+                    <div class="section-title trending p-2" style="color:white; text-align:center;">
+              <h4>Trending Courses</h4>
+          </div>
+              <div class="panel-body">
+					<ol class="list-unstyled mb-0">
 
-                </thead>
-                <tbody>
-                    {% for post in trends %}
-                    <tr class="card-hover">
-                        <td>
-                            <div class="trend-contents">
-                                <h5><a href="{% url 'coursePost' post.id post.slug %}"
-                                        style="text-decoration:none; color:black;">{{post.title}}
-                                    </a></h5>
-                                <div class="post-meta">
+                {% for post in pop_post|slice:":5" %}
+                <div class="media mt-3">
+                    <img src="{{ post.img.url }}" alt="" class="mr-2" style="width:110px; height:70px;">
+                    <div class="media-body small">
+                      <div class="d-flex justify-content-between align-items-center w-100">
+                          <a href="{% url 'coursePost' post.id post.slug %}" style="text-decoration:none; color:#0d0d0d;"><h6 class="card-title blogpost-hover">{{ post.title }}</h6></a>
+                      </div>
+                        <div class="post-meta">
 
-
-                                    <span class="date-read">{{post.upload_time}}
-                                        <span class="icon-star2"></span></span>
-                                </div>
-                            </div>
-
-                        </td>
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-            </table>
-            <p>
+                            <span class="date-read">{{post.upload_time}}<span class="icon-star2"></span></span>
+                        </div>
+                    </div>
+                  </div>
+                <hr>
+                {% endfor %}
+ <p>
                 <a href="{% url 'category' 'trending' %}" class="btn btn-treand">See All Trending Courses<span
                         class="icon-keyboard_arrow_right"></span></a>
             </p>
+            </ol>
+					</div>
+       </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}
