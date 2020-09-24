@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 <!--   <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >-->
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="/static/vendor/fa/css/fontawesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/vendor/style.css">
-    
+
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style="font-size:25px;">CodeXtream</a>
@@ -26,13 +27,7 @@
             <li class="nav-item {% block homeactive %}{% endblock %}">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-<!--            <li class="nav-item {% block FreeBookactive %}{% endblock %}">-->
-<!--                <a class="nav-link" href="#">FreeBook</a>-->
-<!--            </li>-->
 
-            
-            
-            
             {% if cat_menu %}
             <li class="nav-item dropdown {% block Coursesactive %}{% endblock %}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -55,22 +50,16 @@
             <li class="nav-item {% block donateactive %}{% endblock %}">
                 <a class="nav-link" href="/donate">Donate</a>
             </li>
-            
+
         </ul>
         <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search for Courses" aria-label="Search" name="q" required>
             <button class="btn btn-dark my-2 mr-4 my-sm-0" type="submit" title="search"><i class="fa fa-search"></i></button>
         </form>
-         
-        {% if user.is_authenticated %}
-        <button type="button" class="btn btn-success  mr-2"><a style="text-decoration:none; color:white;" href="{% url 'account_email' %}">Change E-mail</a></button>
-        <button type="button" class="btn btn-success "><a style="text-decoration:none; color:white;" href="{% url 'account_logout' %}">Logout</a></button>
-        {% else %}
-        <button type="button" class="btn btn-success mr-2" ><a style="text-decoration:none; color:white;" href="{% url 'account_login' %}">Login</a></button>
-        <button type="button" class="btn btn-success"><a style="text-decoration:none; color:white;" href="{% url 'account_signup' %}">SignUp</a></button>
-        {% endif %}
-      
-        
+
+
+
+
     </div>
 </nav>
 
@@ -91,31 +80,16 @@
 {% endblock %}
 </body>
 
-
-
-
-
-
 <div class="footer-back">
 <footer class="container py-5">
       <div class="row">
         <div class="col-12 col-md">
             <img src="{% static 'images/code.png' %}" style="width:200px;" alt=""><br><br>
-           
+
             <small class="d-block mb-3 ml-4 text-muted">&copy; 2020-2021 <a href="/" style="text-decoration:none; color:white;">CodeXtream</a> </small>
             <h6></h6>
         </div>
-<!--        <div class="col-6 col-md">-->
-<!--          <h5>Features</h5>-->
-<!--          <ul class="list-unstyled text-small">-->
-<!--            <li><a class="text-muted" href="#">Cool stuff</a></li>-->
-<!--            <li><a class="text-muted" href="#">Random feature</a></li>-->
-<!--            <li><a class="text-muted" href="#">Team feature</a></li>-->
-<!--            <li><a class="text-muted" href="#">Stuff for developers</a></li>-->
-<!--            <li><a class="text-muted" href="#">Another one</a></li>-->
-<!--            <li><a class="text-muted" href="#">Last time</a></li>-->
-<!--          </ul>-->
-<!--        </div>-->
+
         <div class="col-6 col-md">
           <h5>Content</h5>
           <ul class="list-unstyled text-small">
@@ -138,7 +112,7 @@
               </div>
               <div class="row">
                    <li><a class="btn btn-info btn-md mt-2 ml-3 mr-1" href="https://t.me/CodeXtream" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
-           
+
                 <li><a class="btn btn-danger btn-md ml-1 mt-2 mr-2" href="https://www.facebook.com/code.xtrem.5" target="_blank"><i class="fa fa-facebook"></i></a></li>
            </div>
           </ul>
@@ -156,10 +130,7 @@
     </footer>
 </div>
 
-
-
 <script src="/static/vendor/fa/js/fontawesome.min.js"></script>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -168,7 +139,5 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
-
 </body>
-
 </html>
