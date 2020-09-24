@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import path, include
 from django.views.generic import RedirectView
 from codextream import settings
@@ -30,12 +29,7 @@ urlpatterns = [
                   path('blog/', include('blog.urls')),
                   path('freepdf/', include('freepdf.urls')),
                   path('blog/', RedirectView.as_view(url='blog/')),
-                  path('freepdf/',RedirectView.as_view(url='freepdf/')),
-                  path('accounts/', include('allauth.urls')),
+                  path('freepdf/', RedirectView.as_view(url='freepdf/')),
                   path('ckeditor/', include('ckeditor_uploader.urls')),
                   path('', RedirectView.as_view(url='course/')),
-              ] 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
