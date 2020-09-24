@@ -14,7 +14,6 @@
         <div class="col-md-6 col-lg-4 col-xl-3 ">
             <div class="card card-hover card-shadow mt-4" style="width: 18rem;">
                 <a href="{% url 'coursePost' course.id course.slug %}"><img src="{{course.img.url}}" title="{{course.title}}" class="card-img-top img-thumbnail" style="height: 150px;" alt="..."></a>
-<!--                <img src="{{course.img.url}}" class="card-img-top img-thumbnail" style="height: 150px;" alt="...">-->
                 <p class="bottom-left"><span>{{course.course_site_name}}</span></p>
                 <div class="card-body">
 
@@ -36,9 +35,6 @@
             </div>
         </div>
         {% endfor %}
-
-
-
     </div>
        {% endif %}
        
