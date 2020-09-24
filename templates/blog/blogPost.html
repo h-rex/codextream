@@ -10,131 +10,29 @@
         <main role="main" class="container mt-4">
   <div class="row">
     <div class="col-xl-8 single-content pb-3 home-background">
-               
-                <p class="mb-5">
+
+                <p class="mb-3">
                     <img src="{{post.img.url}}" alt="Image" class="img-fluid mt-3">
                 </p>
-                <div class="container">
-                    <h2 class="mb-4">
-                    {{post.title}}
-                </h2>
-                    <div class="post-meta d-flex ml-3 mb-3">
-                      
-                    <div class="vcard">
-<!--                        <span class="d-block"><a href="#">{{post.user.username}}</a></span>-->
-                        <div class="row">
-                        <a href="#" style="text-decoration: none; color: black;">
-                      <img src="{% static 'images/devdarji.jpg' %}" class="rounded-circle home-profile" style="height: 40px; width: 40px;" >&nbsp;&nbsp;{{post.author}} | {{post.upload_time|timesince}} ago</a>
-                            </div>
-                    </div>
-                       
-                </div>
-                     <hr>
-                </div>
-                 
-                
-                
+              <div class="row">
+				<div class="col-sm-12">
+					<div class="page-header">
+						<h3>{{post.title}}</h3>
+						<p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#">{{post.author}}</a> on
+                            <span class="glyphicon glyphicon-time"></span>{{post.upload_time}}</p>
+					</div>
+				</div>
+			</div>
+<hr>
                 <div class="container">
                     {{post.body_text|safe}}
                 </div>
-        
-        
-        <div class="container ml-2">
-          <div class="section-title">
-            <h2 class="mb-3">Comments</h2>
-          </div>
-          {% if user.is_authenticated %}
-
-
-          <ul class="comment-list">
-            {% for cm in comments %}
-            <div class="comment">
-                <div class="row">
-              <div class="col-sm-1">
-                <img src="{% static 'images/banner.jpg' %}" class="rounded-circle mt-3" style="height:45px; width:45px;" alt="Image placeholder">
-              </div>
-              <div class="col-sm-10">
-                <h4>{{cm.0.user.username}}</h4>
-                <div class="meta">{{cm.0.time}}</div>
-                <p>{{cm.0.comm}}</p>
-                <p id="{{cm.0.id}}"><button onclick="ReplyForm('{{cm.0.id}}')" class="reply signupbtn mt-0 mb-0">Reply</button></p>
-              </div>
             </div>
-                    
-                    
-              <div class="children ml-5">
-                {% for subc in cm.1 %}
-                <div class="comment">
-                    <div class="row">
-                  <div class="col-sm-1">
-                    <img src="{% static 'images/banner.jpg' %}" class="rounded-circle mt-3" style="height:45px; width:45px;" alt="Image placeholder">
-                  </div>
-                  <div class="col-sm-10 ml-2">
-                    <h3>{{subc.user.username}}</h3>
-                    <div class="meta">{{subc.time}}</div>
-                    <p>{{subc.comm}}</p>
-
-                  </div>
-                        </div>
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-            {% endfor %}
-          </ul>
-          <!-- END comment-list -->
-          <script type="text/javascript">
-            function ReplyForm(id) {
-              let elm = `<form method="POST" class="p-3 bg-dark">
-                            {% csrf_token %}
-                            <div class="form-group">
-                            <input type='text' value='${id}' name='comm_id' style="display:none;" readonly/>
-                              <label for="message" style="color:white;">Comment</label>
-                              <textarea name="comm" id="message" cols="30" rows="3" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                              <input type="submit" value="Post Comment" class="signupbtn btn btn-primary mb-0">
-                            </div>
-                          </form>`;
-              document.getElementById(id).innerHTML = elm;
-
-            }
-          </script>
-          <div class="comment-form-wrap">
-            <div class="section-title">
-              <h2 class="mb-4">Leave a comment</h2>
-            </div>
-            <form method="POST" class="p-3 bg-dark">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="message" style="color:white;">Comment</label>
-                <textarea name="comm" id="message" cols="30" rows="3" class="form-control" required></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Post Comment" class="signupbtn btn btn-sm mb-0">
-              </div>
-
-            </form>
-          </div>
-          {% else %}
-          <button class="signupbtn btn btn-sm"><a href="{% url 'account_login' %}" style="text-decoration:none; color:white;">Login</a></button>
-          <button class="signupbtn btn btn-sm"><a href="{% url 'account_signup' %}" style="text-decoration:none; color:white;">SignUp</a></button>
-          {% endif %}
-        </div>
-        
-        
-        
-        
-        
-        
-           
-                
-            </div>
-
+            
     <aside class="col-lg-4 blog-sidebar">
        <div class="mt-4">
             <h4>Search Here: </h4>
-       
+
             <div class="wrap">
                 <form class="search" action="{% url 'blogSearch' %}">
                    <input type="search" class="searchTerm" placeholder="Search here for Blog" name="q" required>
@@ -150,7 +48,7 @@
               <h4>Popular Posts</h4>
           </div>
             <ol class="list-unstyled mb-0">
-                
+
                 {% for post in pop_post|slice:":5" %}
                 <div class="media mt-3">
                     <img src="{{ post.img.url }}" alt="" class="mr-2" style="width:70px; height:50px;">
@@ -165,12 +63,12 @@
 
             </ol>
           </div>
-    
+
       <div class="mt-4 mb-4">
             <div class="section-title trending p-2" style="color:white; text-align:center;">
               <h4>Recent Posts</h4>
           </div>
-          
+
             <ol class="list-unstyled mb-0">
                 {% for post in allPosts|slice:":5" %}
                 <div class="media mt-3">
@@ -183,7 +81,7 @@
                   </div>
                 <hr>
                 {% endfor %}
-    
+
             </ol>
           </div>
     </aside><!-- /.blog-sidebar -->
@@ -194,6 +92,4 @@
     </div>
 </div>
 
-
 {% endblock %}
- 
