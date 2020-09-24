@@ -16,13 +16,13 @@
 
         <!-- Title -->
         <h1 class="mt-4"><a href="/freepdf" style="text-decoration:none; color:black;">FreePDF</a></h1>
-          
+
 
         <hr>
           <div class="ml-1">
            {% if pdf|length < 1 %}
-    
-    <div>            
+
+    <div>
         <p>Your search - <br><strong>{{title|truncatechars:85}}</strong>- did not match any term.</p>
         <h5>Suggestions:</h5>
         <ul>
@@ -30,7 +30,7 @@
             <li class="ml-5">Try different keywords.</li>
             <li class="ml-5">Try more general keywords.</li>
             <li class="ml-5">Try fewer keywords.</li>
-        </ul>         
+        </ul>
     </div>
     {% else %}
      <div class="row ml-1">
@@ -50,17 +50,17 @@
                     <div class="card-body">
                         <a href="{% url 'pdfPost' file.slug %}" style="text-decoration:none;color:#0d0d0d;"><h6 class="blogpost-hover">{{file.title|truncatechars:65}}</h6></a>
                       <p>{{file.pdf_pages}} Pages&nbsp; &middot;&nbsp; {{file.year}}&nbsp; &middot; &nbsp;{{file.pdf_size}} MB&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'category_pdf' file.category_pdf.slug %}" style="text-decoration:none;">{{file.category_pdf}}</a><div class="text-right"> <a href="{% url 'pdfPost' file.slug %}" class="btn categorypdf btn-sm" style="text-decoration:none; color:white;" >Download Page</a></div></p>
-                      
+
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-</div>      
+</div>
         {% endfor %}
-      
-     {% if pdf %}     
+
+     {% if pdf %}
   <ul class="pagination justify-content-center mt-3 ">
          {% if pdf.has_previous %}
          <li><a href="?page=1"  class="page-link" >First</a></li>
@@ -86,7 +86,7 @@
 
         <!-- Search Widget -->
      <div class="card my-4">
-            
+
           <h5 class="card-header">Search</h5>
           <div class="card-body">
               <form action="{% url 'pdfSearch' %}">
@@ -97,9 +97,9 @@
               </span>
             </div>
                   </form>
-              
+
           </div>
-                
+
         </div>
 
         <!-- Categories Widget -->
@@ -116,7 +116,7 @@
                     {% endfor %}
                 </ul>
               </div>
-            
+
             </div>
           </div>
         </div>
@@ -134,6 +134,5 @@
     </div>
     <!-- /.row -->
 
-       
   </div>
 {% endblock %}
