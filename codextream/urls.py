@@ -24,7 +24,7 @@ admin.site.site_title = "CodeXtream Admin Panel"
 admin.site.index_title = "Welcome to CodeXtream Admin Panel"
 
 urlpatterns = [
-                  path('heypajxn/', admin.site.urls),
+                  path('admin/', admin.site.urls),
                   path('', include('course.urls')),
                   path('blog/', include('blog.urls')),
                   path('freepdf/', include('freepdf.urls')),
