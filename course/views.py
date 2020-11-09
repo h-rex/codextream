@@ -158,13 +158,10 @@ class CourseCategory(ListView):
         return cat_menu
 
     def get_context_data(self, **kwargs):
-        context = super(CourseCategory, self).get_context_data(**kwargs)
-        context['category'] = self.category
         return context
 
 
 def contact(request):
-    cat_menu = Category.objects.all().order_by('name')
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -180,7 +177,6 @@ def contact(request):
 
 
 def donate(request):
-    cat_menu = Category.objects.all().order_by('name')
     parms = {
         'cat_menu' : cat_menu
     }
